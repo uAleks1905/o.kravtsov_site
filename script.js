@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Floating Images Animation
     const floatingImages = document.querySelectorAll('.home-background .floating-image, .skills-background .floating-image');
+    let animationFrameId = null;
     
     function initializeFloatingImage(img) {
-        // Container-Dimensionen ermitteln
         const container = img.closest('.floating-images-container');
         const containerRect = container.getBoundingClientRect();
         
@@ -15,21 +15,18 @@ document.addEventListener('DOMContentLoaded', function() {
         const startY = Math.random() * (containerRect.height - 70);
         
         // Zufällige Geschwindigkeit mit größerer Variation
-        const speedX = (Math.random() - 0.5) * 3;
-        const speedY = (Math.random() - 0.5) * 3;
+        const speedX = (Math.random() - 0.5) * 2;
+        const speedY = (Math.random() - 0.5) * 2;
         
         // Zufällige Größe
-        const size = 40 + Math.random() * 30; // Zwischen 40px und 70px
+        const size = 40 + Math.random() * 30;
         img.style.width = `${size}px`;
         img.style.height = `${size}px`;
         
-        // Zufällige Startposition
-        img.style.left = `${startX}px`;
-        img.style.top = `${startY}px`;
-        
-        // Zufällige Rotation
-        const rotation = Math.random() * 360;
-        img.style.transform = `rotate(${rotation}deg)`;
+        // Position setzen mit transform statt left/top für bessere Performance
+        const transform = `translate3d(${startX}px, ${startY}px, 0) rotate(${Math.random() * 360}deg)`;
+        img.style.transform = transform;
+        img.style.webkitTransform = transform;
         
         return { 
             img, 
@@ -37,9 +34,10 @@ document.addEventListener('DOMContentLoaded', function() {
             y: startY, 
             speedX, 
             speedY,
-            rotation,
+            rotation: Math.random() * 360,
             rotationSpeed: (Math.random() - 0.5) * 2,
-            container
+            container,
+            size
         };
     }
 
@@ -54,36 +52,49 @@ document.addEventListener('DOMContentLoaded', function() {
         element.rotation += element.rotationSpeed;
 
         // Kollisionserkennung mit Container-Rändern
-        if (element.x <= 0 || element.x >= containerRect.width - element.img.offsetWidth) {
+        if (element.x <= 0 || element.x >= containerRect.width - element.size) {
             element.speedX *= -1;
-            element.x = Math.max(0, Math.min(element.x, containerRect.width - element.img.offsetWidth));
-            element.rotationSpeed = (Math.random() - 0.5) * 2; // Neue Rotationsgeschwindigkeit bei Kollision
+            element.x = Math.max(0, Math.min(element.x, containerRect.width - element.size));
+            element.rotationSpeed = (Math.random() - 0.5) * 2;
         }
-        if (element.y <= 0 || element.y >= containerRect.height - element.img.offsetHeight) {
+        if (element.y <= 0 || element.y >= containerRect.height - element.size) {
             element.speedY *= -1;
-            element.y = Math.max(0, Math.min(element.y, containerRect.height - element.img.offsetHeight));
-            element.rotationSpeed = (Math.random() - 0.5) * 2; // Neue Rotationsgeschwindigkeit bei Kollision
+            element.y = Math.max(0, Math.min(element.y, containerRect.height - element.size));
+            element.rotationSpeed = (Math.random() - 0.5) * 2;
         }
 
-        // Position und Rotation aktualisieren
-        element.img.style.left = `${element.x}px`;
-        element.img.style.top = `${element.y}px`;
-        element.img.style.transform = `rotate(${element.rotation}deg)`;
+        // Transform statt left/top für bessere Performance
+        const transform = `translate3d(${element.x}px, ${element.y}px, 0) rotate(${element.rotation}deg)`;
+        element.img.style.transform = transform;
+        element.img.style.webkitTransform = transform;
     }
 
     function animate() {
         floatingElements.forEach(updatePosition);
-        requestAnimationFrame(animate);
+        animationFrameId = requestAnimationFrame(animate);
     }
 
+    // Animation starten
     animate();
+
+    // Cleanup bei Seitenwechsel
+    window.addEventListener('unload', function() {
+        if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+        }
+    });
 
     // Smooth scrolling für Navigation
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
             const section = document.querySelector(this.getAttribute('href'));
-            section.scrollIntoView({ behavior: 'smooth' });
+            if (section) {
+                section.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
         });
     });
 
@@ -115,14 +126,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animation beim Scrollen
+    // Animation beim Scrollen mit Debouncing
+    let scrollTimeout;
     window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section');
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < window.innerHeight - 100) {
-                section.style.opacity = '1';
-            }
+        if (scrollTimeout) {
+            window.cancelAnimationFrame(scrollTimeout);
+        }
+        
+        scrollTimeout = window.requestAnimationFrame(function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 100) {
+                    section.style.opacity = '1';
+                }
+            });
         });
     });
 });

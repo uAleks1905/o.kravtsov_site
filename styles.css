@@ -84,6 +84,13 @@ section:nth-child(even) {
     border-radius: 15px;
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    -webkit-backdrop-filter: blur(5px);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    perspective: 1000;
+    -webkit-perspective: 1000;
 }
 
 .profile-picture {
@@ -111,11 +118,18 @@ h2 {
 .skills-container {
     position: relative;
     z-index: 1;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     padding: 3rem;
     border-radius: 15px;
     backdrop-filter: blur(12px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    -webkit-backdrop-filter: blur(12px);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    perspective: 1000;
+    -webkit-perspective: 1000;
 }
 
 .skills-container h2 {
@@ -330,12 +344,16 @@ footer {
     pointer-events: none;
     overflow: hidden;
     display: none;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 
 .home-background,
 .skills-background {
     display: block;
     background: linear-gradient(to bottom, rgba(245, 246, 250, 0.85), rgba(245, 246, 250, 0.75));
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 
 #home {
@@ -351,7 +369,10 @@ footer {
     opacity: 0.3;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     transition: transform 0.3s ease;
+    -webkit-transition: transform 0.3s ease;
     will-change: transform, left, top;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
 }
 
 .floating-image:nth-child(odd) {
@@ -390,6 +411,13 @@ footer {
     border-radius: 15px;
     backdrop-filter: blur(8px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    -webkit-backdrop-filter: blur(8px);
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    perspective: 1000;
+    -webkit-perspective: 1000;
 }
 
 .personal-story {
@@ -521,5 +549,12 @@ footer {
     
     .personal-story p {
         font-size: 1rem;
+    }
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .floating-image {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
     }
 }
