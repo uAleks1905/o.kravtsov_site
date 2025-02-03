@@ -10,20 +10,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const container = img.closest('.floating-images-container');
         const containerRect = container.getBoundingClientRect();
         
-        // Zufällige Startposition innerhalb des Containers
         const startX = Math.random() * (containerRect.width - 70);
         const startY = Math.random() * (containerRect.height - 70);
         
-        // Zufällige Geschwindigkeit mit größerer Variation
         const speedX = (Math.random() - 0.5) * 2;
         const speedY = (Math.random() - 0.5) * 2;
         
-        // Zufällige Größe
         const size = 40 + Math.random() * 30;
         img.style.width = `${size}px`;
         img.style.height = `${size}px`;
         
-        // Position setzen mit transform statt left/top für bessere Performance
         const transform = `translate3d(${startX}px, ${startY}px, 0) rotate(${Math.random() * 360}deg)`;
         img.style.transform = transform;
         img.style.webkitTransform = transform;
@@ -46,12 +42,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function updatePosition(element) {
         const containerRect = element.container.getBoundingClientRect();
         
-        // Position aktualisieren
         element.x += element.speedX;
         element.y += element.speedY;
         element.rotation += element.rotationSpeed;
 
-        // Kollisionserkennung mit Container-Rändern
         if (element.x <= 0 || element.x >= containerRect.width - element.size) {
             element.speedX *= -1;
             element.x = Math.max(0, Math.min(element.x, containerRect.width - element.size));
@@ -63,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
             element.rotationSpeed = (Math.random() - 0.5) * 2;
         }
 
-        // Transform statt left/top für bessere Performance
         const transform = `translate3d(${element.x}px, ${element.y}px, 0) rotate(${element.rotation}deg)`;
         element.img.style.transform = transform;
         element.img.style.webkitTransform = transform;
@@ -74,10 +67,8 @@ document.addEventListener('DOMContentLoaded', function() {
         animationFrameId = requestAnimationFrame(animate);
     }
 
-    // Animation starten
     animate();
 
-    // Cleanup bei Seitenwechsel
     window.addEventListener('unload', function() {
         if (animationFrameId) {
             cancelAnimationFrame(animationFrameId);
@@ -126,21 +117,36 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Animation beim Scrollen mit Debouncing
+    // Scroll-Animation initialisieren
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        if (section.id !== 'home') {
+            section.classList.add('fade-in');
+        }
+    });
+
+    // Scroll-Animation Handler mit Debouncing
     let scrollTimeout;
+    function checkScroll() {
+        const sections = document.querySelectorAll('.fade-in');
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top;
+            const triggerPoint = window.innerHeight - 100;
+            
+            if (sectionTop < triggerPoint) {
+                section.classList.add('visible');
+            }
+        });
+    }
+
+    // Initial Check für sichtbare Sektionen
+    checkScroll();
+
+    // Scroll Event Handler
     window.addEventListener('scroll', function() {
         if (scrollTimeout) {
             window.cancelAnimationFrame(scrollTimeout);
         }
-        
-        scrollTimeout = window.requestAnimationFrame(function() {
-            const sections = document.querySelectorAll('section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight - 100) {
-                    section.style.opacity = '1';
-                }
-            });
-        });
+        scrollTimeout = window.requestAnimationFrame(checkScroll);
     });
 });
