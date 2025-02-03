@@ -284,6 +284,7 @@ nav {
     display: inline-block;
     margin-bottom: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-align: left;
 }
 
 .timeline-content {
@@ -295,6 +296,12 @@ nav {
 }
 
 .timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.timeline-content h4 {
     color: var(--primary-color);
     margin-bottom: 0.5rem;
     text-align: left;
@@ -330,6 +337,7 @@ nav {
     }
 
     .timeline-content h3,
+    .timeline-content h4,
     .timeline-content p {
         text-align: left;
     }
