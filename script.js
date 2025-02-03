@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Fade-In Effekt für alle Sektionen
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+
+    document.querySelectorAll('.section-container').forEach((section) => {
+        observer.observe(section);
+    });
+
     // Burger Menu Funktionalität
     const burgerMenu = document.querySelector('.burger-menu');
     const navLinks = document.querySelector('.nav-links');
@@ -26,6 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.remove('menu-open');
         }
     });
+
+    // Skills immer ausgeklappt auf Mobile
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        document.querySelectorAll('.skill-details').forEach(detail => {
+            detail.style.display = 'block';
+        });
+    }
 
     // EmailJS initialisieren
     emailjs.init("yAFl8JK5gjPgoDVjb");
@@ -144,14 +167,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-
-    // Scroll-Animation initialisieren
-    const sections = document.querySelectorAll('section');
-    sections.forEach(section => {
-        if (section.id !== 'home') {
-            section.classList.add('fade-in');
-        }
-    });
 
     // Scroll-Animation Handler mit Debouncing
     let scrollTimeout;
