@@ -216,6 +216,7 @@ nav {
     color: var(--primary-color);
     margin: 1rem 0;
     line-height: 1.2;
+    opacity: 0;
 }
 
 .profile-name span {
@@ -943,4 +944,36 @@ html, body {
 
 main {
     padding-top: 60px;
+}
+
+.typewriter {
+    position: relative;
+    display: inline-block;
+    overflow: visible;
+    white-space: nowrap;
+    margin: 0 auto;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.typewriter::after {
+    content: '';
+    position: absolute;
+    right: -4px;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background: #000;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.profile-name, .profile-section h2 {
+    overflow: hidden;
+    white-space: nowrap;
+    opacity: 0;
 }

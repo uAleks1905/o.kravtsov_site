@@ -203,4 +203,41 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         scrollTimeout = window.requestAnimationFrame(checkScroll);
     });
+
+    // Typewriter Effekt
+    const nameElement = document.querySelector('.profile-name');
+    const titleElement = document.querySelector('.profile-section h2');
+    
+    function startTypewriter(element, delay = 0) {
+        const text = element.textContent;
+        const typewriterSpan = document.createElement('span');
+        typewriterSpan.classList.add('typewriter');
+        element.textContent = '';
+        element.appendChild(typewriterSpan);
+        element.style.opacity = '1';
+        
+        setTimeout(() => {
+            let i = 0;
+            const typing = setInterval(() => {
+                if (i < text.length) {
+                    typewriterSpan.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(typing);
+                    // Cursor am Ende entfernen
+                    setTimeout(() => {
+                        typewriterSpan.classList.remove('typewriter');
+                    }, 1000);
+                    if (element === nameElement && titleElement) {
+                        startTypewriter(titleElement);
+                    }
+                }
+            }, 100);
+        }, delay);
+    }
+
+    // Starte den Effekt mit dem Namen
+    if (nameElement) {
+        startTypewriter(nameElement, 500);
+    }
 });
