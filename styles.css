@@ -9,6 +9,11 @@
     section {
         min-height: -webkit-fill-available;
     }
+    
+    .profile-name span {
+        display: block;
+        width: 100%;
+    }
 }
 
 :root {
@@ -172,9 +177,24 @@ nav {
     }
 }
 
-.container,
+/* Einheitliche Container-Styles */
 .section-container,
-.skills-container {
+.skills-container,
+#about .section-container,
+#resume .section-container,
+#skills .section-container {
+    background: var(--container-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 15px;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    width: 90%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
@@ -188,57 +208,17 @@ nav {
     width: 95%;
 }
 
-.section-container {
-    background: var(--container-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 15px;
-    padding: 3rem;
-    margin: 2rem auto;
-    max-width: 1200px;
-    width: 90%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    opacity: 1;
-    transform: none;
-    transition: none;
+/* Name Styles mit Safari-Fix */
+.profile-name {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 1rem 0;
+    line-height: 1.2;
+    text-align: center;
 }
 
-/* Fade-In Animation nur für Desktop */
-@media (min-width: 769px) {
-    .section-container {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .section-container.visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Mobile: Keine Animation */
-@media (max-width: 768px) {
-    .section-container {
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-        margin-top: 1rem;
-    }
-
-    .section-container.visible {
-        opacity: 1 !important;
-        transform: none !important;
-    }
-
-    /* Stelle sicher, dass alle Sektionen sofort sichtbar sind */
-    #home, #about, #skills, #resume, #contact,
-    .section-container, .skills-container {
-        visibility: visible !important;
-        opacity: 1 !important;
-        transform: none !important;
-        transition: none !important;
-    }
+.profile-name span {
+    display: inline-block;
 }
 
 .timeline {
@@ -480,31 +460,21 @@ h4 {
     margin-top: 2rem;
 }
 
-.profile-name {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin: 1rem 0;
-    line-height: 1.2;
-    word-break: keep-all;
-    white-space: nowrap;
-}
-
+/* Name auf Mobile */
 @media (max-width: 768px) {
     .profile-name {
         font-size: 2rem;
-        white-space: normal;
-        word-break: break-word;
-        hyphens: none;
+    }
+    
+    .profile-name span {
+        display: block;
+        width: 100%;
     }
 }
 
 @media (max-width: 380px) {
     .profile-name {
         font-size: 1.8rem;
-    }
-    
-    .profile-name span {
-        display: block;
     }
 }
 
@@ -941,4 +911,32 @@ html, body {
 
 main {
     padding-top: 60px;
+}
+
+/* Einheitliche Container auf Mobile */
+@media (max-width: 768px) {
+    .section-container,
+    .skills-container,
+    #about .section-container,
+    #resume .section-container,
+    #skills .section-container {
+        width: 92%;
+        padding: 1.5rem;
+        margin: 1rem auto;
+        border-radius: 12px;
+    }
+}
+
+/* Einheitliche Container auf sehr kleinen Bildschirmen */
+@media (max-width: 380px) {
+    .section-container,
+    .skills-container,
+    #about .section-container,
+    #resume .section-container,
+    #skills .section-container {
+        width: 94%;
+        padding: 1.2rem;
+        margin: 0.8rem auto;
+        border-radius: 10px;
+    }
 }
