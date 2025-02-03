@@ -189,7 +189,7 @@ nav {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-radius: 15px;
-    padding: 3rem;
+    padding: 1rem;
     margin: 2rem auto;
     max-width: 1200px;
     width: 90%;
@@ -396,7 +396,7 @@ section {
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 1.5rem;
-    border: 3px solid var(--accent-color);
+    border: 8px solid rgb(245, 242, 238);
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
