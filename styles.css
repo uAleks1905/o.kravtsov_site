@@ -139,6 +139,8 @@ nav .nav-links a:hover {
     max-width: 1200px;
     width: 90%;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
 }
 
 .skills-container {
@@ -148,23 +150,30 @@ nav .nav-links a:hover {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    transform: translateZ(0);
-    -webkit-transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    perspective: 1000;
-    -webkit-perspective: 1000;
     max-width: 1200px;
     width: 90%;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
-.skills-category {
-    margin-bottom: 3rem;
-    background: var(--container-bg);
-    padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+.floating-images-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+section {
+    position: relative;
+    padding: 4rem 0;
+    min-height: 100vh;
+    width: 100%;
+    z-index: 1;
 }
 
 .timeline {
@@ -175,26 +184,6 @@ nav .nav-links a:hover {
     padding: 2rem;
     max-width: 600px;
     margin: 0 auto;
-}
-
-section {
-    position: relative;
-    padding: 6rem 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-}
-
-section.fade-in {
-    opacity: 0;
-}
-
-section.fade-in.visible {
-    opacity: 1;
 }
 
 .profile-section {
@@ -485,17 +474,6 @@ footer {
     color: white;
 }
 
-.floating-images-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: -1;
-}
-
 .floating-image {
     position: absolute;
     width: 60px;
@@ -730,23 +708,35 @@ footer {
     }
     
     /* Verbesserte Sichtbarkeit der Sektionen */
+    section {
+        padding: 2rem 0;
+        min-height: auto;
+    }
+
     .section-container,
     .skills-container {
         margin: 1rem auto;
         width: 95%;
         padding: 1.5rem;
+        position: relative;
+        z-index: 2;
     }
     
-    .skills-category {
-        margin-bottom: 2rem;
+    .floating-images-container {
+        position: fixed;
+        z-index: 0;
     }
     
-    .skills-category h3 {
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
+    nav {
+        position: fixed;
+        z-index: 1000;
     }
     
-    /* Allgemeine mobile Anpassungen */
+    .nav-links {
+        position: fixed;
+        z-index: 999;
+    }
+    
     h1 {
         font-size: 2rem;
     }
