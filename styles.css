@@ -706,89 +706,74 @@ footer {
     .skill-item:active,
     .skill-item:focus {
         height: auto;
-        min-height: 300px;
+        min-height: 350px;
     }
 
     .skill-details {
         padding: 1.2rem;
+        font-size: 1rem;
+    }
+
+    .skill-details p {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-details ul {
+        margin-left: 0.5rem;
     }
 
     .skill-details li {
         margin-bottom: 0.8rem;
         font-size: 1rem;
+        line-height: 1.4;
     }
-
-    /* Verbesserte Touch-Bedienung */
-    .skill-item:active .skill-brief {
-        opacity: 0;
-    }
-
-    .skill-item:active .skill-details {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    #contact .container {
+    
+    /* Verbesserte Sichtbarkeit der Sektionen */
+    .section-container,
+    .skills-container {
+        margin: 1rem auto;
         width: 95%;
+        padding: 1.5rem;
     }
-
-    #contact input,
-    #contact textarea {
+    
+    .skills-category {
+        margin-bottom: 2rem;
+    }
+    
+    .skills-category h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Allgemeine mobile Anpassungen */
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    /* Verbesserte Navigation auf Mobile */
+    nav {
         padding: 0.8rem;
     }
-
-    #contact button {
-        width: 100%;
-        max-width: none;
-    }
-
-    #skills .container {
-        width: 98%;
-        padding: 1rem;
-    }
     
-    .skills-container,
-    .section-container {
-        width: 95%;
-        padding: 1.5rem;
-    }
-    
-    .skills-category,
-    .timeline,
-    .contact-form {
-        padding: 1rem;
-    }
-    
-    .skill-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-
-    .about-content {
-        padding: 1.5rem;
-    }
-    
-    .project {
-        padding: 1.5rem;
-    }
-    
-    .personal-story p {
-        font-size: 1rem;
-    }
-    
-    .container,
-    .profile-section {
-        width: 95%;
-        padding: 1.5rem;
+    .nav-links a {
+        font-size: 1.1rem;
+        padding: 0.8rem;
     }
 }
 
 @media (max-width: 380px) {
     .skill-item {
-        padding: 1rem;
-    }
-
-    .skill-details {
         padding: 1rem;
     }
 
@@ -800,9 +785,30 @@ footer {
         font-size: 0.9rem;
     }
 
+    .skill-details {
+        padding: 1rem;
+    }
+
+    .skill-details p {
+        font-size: 1rem;
+    }
+
     .skill-details li {
         font-size: 0.9rem;
         margin-bottom: 0.6rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.6rem;
     }
 }
 
