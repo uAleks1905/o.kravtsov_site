@@ -1,18 +1,30 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Fade-In Effekt für alle Sektionen
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.1
-    });
+    // Überprüfe ob es ein mobiles Gerät ist
+    const isMobile = window.innerWidth <= 768;
 
-    document.querySelectorAll('.section-container').forEach((section) => {
-        observer.observe(section);
-    });
+    // Fade-In Effekt nur für Desktop
+    if (!isMobile) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.section-container').forEach((section) => {
+            observer.observe(section);
+        });
+    } else {
+        // Auf Mobile: Zeige alle Sektionen sofort
+        document.querySelectorAll('.section-container').forEach((section) => {
+            section.classList.add('visible');
+            section.style.opacity = '1';
+            section.style.transform = 'none';
+        });
+    }
 
     // Burger Menu Funktionalität
     const burgerMenu = document.querySelector('.burger-menu');
@@ -43,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Skills immer ausgeklappt auf Mobile
-    const isMobile = window.innerWidth <= 768;
     if (isMobile) {
         document.querySelectorAll('.skill-details').forEach(detail => {
             detail.style.display = 'block';
