@@ -183,6 +183,7 @@ nav {
 .skills-container,
 #about .section-container,
 #resume .section-container,
+#skills .section-container,
 .skills-category {
     background: var(--container-bg);
     backdrop-filter: blur(12px);
