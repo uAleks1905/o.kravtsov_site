@@ -1,4 +1,25 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Burger Menu Funktionalität
+    const burgerMenu = document.querySelector('.burger-menu');
+    const navLinks = document.querySelector('.nav-links');
+    
+    function toggleMenu() {
+        burgerMenu.classList.toggle('active');
+        navLinks.classList.toggle('active');
+        document.body.classList.toggle('menu-open');
+    }
+    
+    burgerMenu.addEventListener('click', toggleMenu);
+    
+    // Schließe Menü wenn ein Link geklickt wird
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            burgerMenu.classList.remove('active');
+            navLinks.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        });
+    });
+
     // EmailJS initialisieren
     emailjs.init("yAFl8JK5gjPgoDVjb");
 

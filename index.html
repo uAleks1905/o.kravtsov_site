@@ -20,13 +20,20 @@
 </head>
 <body>
     <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Über mich</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#resume">Lebenslauf</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-        </ul>
+        <div class="nav-container">
+            <button class="burger-menu" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#resume">Lebenslauf</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
     </nav>
 
     <section id="home">
@@ -45,10 +52,6 @@
             <img src="html_picture.png" class="floating-image" alt="HTML">
             <img src="java_picture.jpg" class="floating-image" alt="Java">
             <img src="python_picture.png" class="floating-image" alt="Python">
-            <img src="ai_picture.jpg" class="floating-image" alt="AI">
-            <img src="c_picture.jpeg" class="floating-image" alt="C">
-            <img src="data_picture.jpg" class="floating-image" alt="Data">
-            <img src="git_picture.png" class="floating-image" alt="Git">
         </div>
         <div class="container">
             <div class="profile-section">
@@ -60,44 +63,46 @@
     </section>
 
     <section id="about">
-        <div class="container">
-            <h2>Über mich</h2>
-            <div class="about-content">
-                <div class="personal-story">
-                    <p>Geboren am 19. Mai 2000 in Lwiw, Ukraine, lebe ich seit 2003 in Deutschland, wo meine Faszination für die Informatik ihren Anfang nahm. Schon in jungen Jahren entwickelte ich eine tiefe Begeisterung für Technologie und deren Möglichkeiten, die digitale Welt zu gestalten.</p>
-                    
-                    <p>Seit 2019 lebe ich meinen Traum und studiere Informatik. Das Studium bestätigt täglich meine Leidenschaft für dieses Fachgebiet - die perfekte Mischung aus kreativer Problemlösung und technischer Innovation begeistert mich immer wieder aufs Neue.</p>
-                </div>
-
-                <div class="project-experience">
-                    <h3>Projektportfolio</h3>
-                    <div class="project">
-                        <h4>QGIS-Plugin für Avacon</h4>
-                        <p>In einem viermonatigen Teamprojekt entwickelte ich ein spezialisiertes Plugin für QGIS, das die Beeinflussung von Hochspannungsleitungen (HSP) auf Telekommunikationsleitungen (TK) berechnet. Dieses komplexe Tool ermöglicht:</p>
-                        <ul>
-                            <li>Präzise Berechnung von Beeinflussungsfaktoren zwischen HSP- und TK-Leitungen</li>
-                            <li>Visualisierung der Ergebnisse in der QGIS-Umgebung</li>
-                            <li>Effiziente Teamarbeit und Koordination während der gesamten Entwicklungsphase</li>
-                            <li>Integration in bestehende Avacon-Systeme</li>
-                        </ul>
+        <div class="section-container">
+            <div class="container">
+                <h2>Über mich</h2>
+                <div class="about-content">
+                    <div class="personal-story">
+                        <p>Geboren am 19. Mai 2000 in Lwiw, Ukraine, lebe ich seit 2003 in Deutschland, wo meine Faszination für die Informatik ihren Anfang nahm. Schon in jungen Jahren entwickelte ich eine tiefe Begeisterung für Technologie und deren Möglichkeiten, die digitale Welt zu gestalten.</p>
+                        
+                        <p>Seit 2019 lebe ich meinen Traum und studiere Informatik. Das Studium bestätigt täglich meine Leidenschaft für dieses Fachgebiet - die perfekte Mischung aus kreativer Problemlösung und technischer Innovation begeistert mich immer wieder aufs Neue.</p>
                     </div>
 
-                    <div class="project">
-                        <h4>Verteilte Chat-Bot Architektur</h4>
-                        <p>Entwicklung eines fortschrittlichen Chat-Bot-Systems mit:</p>
-                        <ul>
-                            <li>Server-basierte Nachrichtenverarbeitung</li>
-                            <li>Microservice-Architektur für parallele Anfragenverarbeitung</li>
-                            <li>Skalierbare und effiziente Kommunikationsstrukturen</li>
-                        </ul>
-                    </div>
+                    <div class="project-experience">
+                        <h3>Projektportfolio</h3>
+                        <div class="project">
+                            <h4>QGIS-Plugin für Avacon</h4>
+                            <p>In einem viermonatigen Teamprojekt entwickelte ich ein spezialisiertes Plugin für QGIS, das die Beeinflussung von Hochspannungsleitungen (HSP) auf Telekommunikationsleitungen (TK) berechnet. Dieses komplexe Tool ermöglicht:</p>
+                            <ul>
+                                <li>Präzise Berechnung von Beeinflussungsfaktoren zwischen HSP- und TK-Leitungen</li>
+                                <li>Visualisierung der Ergebnisse in der QGIS-Umgebung</li>
+                                <li>Effiziente Teamarbeit und Koordination während der gesamten Entwicklungsphase</li>
+                                <li>Integration in bestehende Avacon-Systeme</li>
+                            </ul>
+                        </div>
 
-                    <div class="project">
-                        <h4>Weitere Projekte</h4>
-                        <ul>
-                            <li>Implementierung eines wissenschaftlichen Taschenrechners</li>
-                            <li>Diverse Teamarbeit-Erfahrungen in agilen Entwicklungsumgebungen</li>
-                        </ul>
+                        <div class="project">
+                            <h4>Verteilte Chat-Bot Architektur</h4>
+                            <p>Entwicklung eines fortschrittlichen Chat-Bot-Systems mit:</p>
+                            <ul>
+                                <li>Server-basierte Nachrichtenverarbeitung</li>
+                                <li>Microservice-Architektur für parallele Anfragenverarbeitung</li>
+                                <li>Skalierbare und effiziente Kommunikationsstrukturen</li>
+                            </ul>
+                        </div>
+
+                        <div class="project">
+                            <h4>Weitere Projekte</h4>
+                            <ul>
+                                <li>Implementierung eines wissenschaftlichen Taschenrechners</li>
+                                <li>Diverse Teamarbeit-Erfahrungen in agilen Entwicklungsumgebungen</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -120,10 +125,6 @@
             <img src="html_picture.png" class="floating-image" alt="HTML">
             <img src="java_picture.jpg" class="floating-image" alt="Java">
             <img src="python_picture.png" class="floating-image" alt="Python">
-            <img src="ai_picture.jpg" class="floating-image" alt="AI">
-            <img src="c_picture.jpeg" class="floating-image" alt="C">
-            <img src="data_picture.jpg" class="floating-image" alt="Data">
-            <img src="git_picture.png" class="floating-image" alt="Git">
         </div>
         <div class="container">
             <div class="skills-container">
@@ -132,45 +133,139 @@
                 <div class="skills-category">
                     <h3>Technische Skills</h3>
                     <div class="skill-grid">
-                        <div class="skill">
+                        <div class="skill-item">
                             <h4>C</h4>
-                            <p>Fundierte Kenntnisse in systemnaher Programmierung und Speicherverwaltung</p>
+                            <p class="skill-brief">Systemnahe Programmierung</p>
+                            <div class="skill-details">
+                                <p>Fundierte Kenntnisse in systemnaher Programmierung:</p>
+                                <ul>
+                                    <li>Speicherverwaltung und Pointer</li>
+                                    <li>Systemprogrammierung</li>
+                                    <li>Prozess- und Thread-Management</li>
+                                    <li>Low-Level Optimierung</li>
+                                    <li>Hardware-nahe Entwicklung</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+                        
+                        <div class="skill-item">
                             <h4>Java</h4>
-                            <p>Entwicklung objektorientierter Anwendungen mit Fokus auf Clean Code</p>
+                            <p class="skill-brief">Objektorientierte Entwicklung</p>
+                            <div class="skill-details">
+                                <p>Clean Code und objektorientierte Programmierung:</p>
+                                <ul>
+                                    <li>OOP-Prinzipien und Best Practices</li>
+                                    <li>Design Patterns</li>
+                                    <li>Java Collections Framework</li>
+                                    <li>Multithreading</li>
+                                    <li>Unit Testing</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+                        
+                        <div class="skill-item">
                             <h4>Python</h4>
-                            <p>Erstellung von Skripten und Anwendungen mit Schwerpunkt auf Datenverarbeitung</p>
+                            <p class="skill-brief">Skriptentwicklung & Datenverarbeitung</p>
+                            <div class="skill-details">
+                                <p>Erstellung von Skripten und Anwendungen:</p>
+                                <ul>
+                                    <li>Datenverarbeitung und -analyse</li>
+                                    <li>Automatisierung</li>
+                                    <li>Skript-Entwicklung</li>
+                                    <li>Python Libraries</li>
+                                    <li>Datenbank-Integration</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Basic-Web</h4>
-                            <p>Grundlegende Kenntnisse in HTML, CSS und JavaScript für Webentwicklung</p>
+                            <p class="skill-brief">Webentwicklung Grundlagen</p>
+                            <div class="skill-details">
+                                <p>Grundlegende Kenntnisse in Webtechnologien:</p>
+                                <ul>
+                                    <li>HTML5 & CSS3</li>
+                                    <li>JavaScript Basics</li>
+                                    <li>Responsive Design</li>
+                                    <li>Web-Standards</li>
+                                    <li>Frontend-Entwicklung</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Algorithmen</h4>
-                            <p>Entwicklung effizienter Algorithmen zur Lösung komplexer Problemstellungen</p>
+                            <p class="skill-brief">Algorithmen-Design & Optimierung</p>
+                            <div class="skill-details">
+                                <p>Entwicklung effizienter Algorithmen:</p>
+                                <ul>
+                                    <li>Komplexitätsanalyse</li>
+                                    <li>Optimierungsstrategien</li>
+                                    <li>Datenstrukturen</li>
+                                    <li>Problemlösungsansätze</li>
+                                    <li>Performance-Tuning</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Prompt Engineering</h4>
-                            <p>Optimierung von KI-Prompts für effektive Mensch-KI-Interaktion</p>
+                            <p class="skill-brief">KI-Prompt Optimierung</p>
+                            <div class="skill-details">
+                                <p>Optimierung von KI-Interaktionen:</p>
+                                <ul>
+                                    <li>Prompt-Design</li>
+                                    <li>KI-Modell Verständnis</li>
+                                    <li>Effektive Kommunikation</li>
+                                    <li>Kontextoptimierung</li>
+                                    <li>Output-Verbesserung</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Git</h4>
-                            <p>Versionskontrolle und kollaborative Entwicklung in Teams</p>
+                            <p class="skill-brief">Versionskontrolle</p>
+                            <div class="skill-details">
+                                <p>Professionelle Versionskontrolle:</p>
+                                <ul>
+                                    <li>Repository-Management</li>
+                                    <li>Branching-Strategien</li>
+                                    <li>Kollaboratives Arbeiten</li>
+                                    <li>Konfliktlösung</li>
+                                    <li>Git-Workflow</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Software-Design</h4>
-                            <p>Entwicklung skalierbarer Architekturen und Anwendung von Design Patterns</p>
+                            <p class="skill-brief">Architektur & Design</p>
+                            <div class="skill-details">
+                                <p>Entwicklung skalierbarer Architekturen:</p>
+                                <ul>
+                                    <li>Design Patterns</li>
+                                    <li>Clean Architecture</li>
+                                    <li>SOLID Prinzipien</li>
+                                    <li>Microservices</li>
+                                    <li>System-Design</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Linux</h4>
-                            <p>Administration und Konfiguration von Linux-Systemen</p>
-                        </div>
-                        <div class="skill">
-                            <h4>Datenbanken</h4>
-                            <p>Erfahrung in Datenbankdesign, SQL-Query-Erstellung und Datenbankoptimierung</p>
+                            <p class="skill-brief">System-Administration</p>
+                            <div class="skill-details">
+                                <p>Linux Administration und Konfiguration:</p>
+                                <ul>
+                                    <li>System-Management</li>
+                                    <li>Shell-Scripting</li>
+                                    <li>Netzwerkkonfiguration</li>
+                                    <li>Sicherheit</li>
+                                    <li>Troubleshooting</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -178,25 +273,79 @@
                 <div class="skills-category">
                     <h3>Soft Skills</h3>
                     <div class="skill-grid">
-                        <div class="skill">
+                        <div class="skill-item">
                             <h4>Problemlösung</h4>
-                            <p>Analytisches Denken und strukturierte Herangehensweise an komplexe Aufgaben</p>
+                            <p class="skill-brief">Analytisches Denken</p>
+                            <div class="skill-details">
+                                <p>Strukturierte Herangehensweise an Probleme:</p>
+                                <ul>
+                                    <li>Analytisches Denken</li>
+                                    <li>Kreative Lösungsfindung</li>
+                                    <li>Systematische Analyse</li>
+                                    <li>Kritisches Denken</li>
+                                    <li>Entscheidungsfindung</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Kommunikation</h4>
-                            <p>Klare und effektive Kommunikation mit Teammitgliedern und Stakeholdern</p>
+                            <p class="skill-brief">Effektive Kommunikation</p>
+                            <div class="skill-details">
+                                <p>Klare und effektive Kommunikation:</p>
+                                <ul>
+                                    <li>Präsentationsfähigkeiten</li>
+                                    <li>Stakeholder-Management</li>
+                                    <li>Technische Dokumentation</li>
+                                    <li>Aktives Zuhören</li>
+                                    <li>Feedback-Kultur</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Agile Methoden</h4>
-                            <p>Erfahrung mit Scrum und Kanban in der Projektentwicklung</p>
+                            <p class="skill-brief">Agiles Projektmanagement</p>
+                            <div class="skill-details">
+                                <p>Erfahrung in agilen Methoden:</p>
+                                <ul>
+                                    <li>Scrum Framework</li>
+                                    <li>Kanban-Prinzipien</li>
+                                    <li>Sprint Planning</li>
+                                    <li>Retrospektiven</li>
+                                    <li>Continuous Improvement</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Zeitmanagement</h4>
-                            <p>Effiziente Priorisierung und Organisation von Aufgaben und Projekten</p>
+                            <p class="skill-brief">Effiziente Organisation</p>
+                            <div class="skill-details">
+                                <p>Strukturierte Aufgabenorganisation:</p>
+                                <ul>
+                                    <li>Prioritätensetzung</li>
+                                    <li>Projektplanung</li>
+                                    <li>Deadline-Management</li>
+                                    <li>Ressourcenplanung</li>
+                                    <li>Work-Life-Balance</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="skill">
+
+                        <div class="skill-item">
                             <h4>Teamarbeit</h4>
-                            <p>Erfolgreiche Zusammenarbeit in diversen Teams und Projektgruppen</p>
+                            <p class="skill-brief">Kollaborative Zusammenarbeit</p>
+                            <div class="skill-details">
+                                <p>Erfolgreiche Teamarbeit:</p>
+                                <ul>
+                                    <li>Teambuilding</li>
+                                    <li>Konfliktmanagement</li>
+                                    <li>Mentoring</li>
+                                    <li>Kulturelle Sensibilität</li>
+                                    <li>Gemeinsame Zielerreichung</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,80 +354,73 @@
     </section>
 
     <section id="resume">
-        <div class="floating-images-container resume-background">
-            <img src="ai_picture.jpg" class="floating-image" alt="AI">
-            <img src="c_picture.jpeg" class="floating-image" alt="C">
-            <img src="data_picture.jpg" class="floating-image" alt="Data">
-            <img src="git_picture.png" class="floating-image" alt="Git">
-            <img src="html_picture.png" class="floating-image" alt="HTML">
-            <img src="java_picture.jpg" class="floating-image" alt="Java">
-            <img src="python_picture.png" class="floating-image" alt="Python">
-        </div>
-        <div class="container">
-            <h2>Lebenslauf</h2>
-            <div class="timeline">
-                <div class="timeline-category">
-                    <h3>Akademische Laufbahn</h3>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2016 - 2019</div>
-                        <div class="timeline-content">
-                            <h3>Abitur mit Schwerpunkt Informatik</h3>
-                            <h4>Eugen-Reintjes-Schule Hameln</h4>
-                            <ul>
-                                <li>Erste praktische Programmiererfahrungen mit Java</li>
-                                <li>Grundlagen der Informatik und algorithmisches Denken</li>
-                            </ul>
+        <div class="section-container">
+            <div class="container">
+                <h2>Lebenslauf</h2>
+                <div class="timeline">
+                    <div class="timeline-category">
+                        <h3>Akademische Laufbahn</h3>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2016 - 2019</div>
+                            <div class="timeline-content">
+                                <h3>Abitur mit Schwerpunkt Informatik</h3>
+                                <h4>Eugen-Reintjes-Schule Hameln</h4>
+                                <ul>
+                                    <li>Erste praktische Programmiererfahrungen mit Java</li>
+                                    <li>Grundlagen der Informatik und algorithmisches Denken</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="timeline-date">2019 - Heute</div>
+                            <div class="timeline-content">
+                                <h3>Bachelor of Science - Informatik</h3>
+                                <h4>Leibniz Universität Hannover</h4>
+                                <ul>
+                                    <li>Umfassende Ausbildung in verschiedenen Programmiersprachen</li>
+                                    <li>Vertiefung in Algorithmen und Datenstrukturen</li>
+                                    <li>Praktische Erfahrung in Softwareentwicklung und Systemadministration</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-date">2019 - Heute</div>
-                        <div class="timeline-content">
-                            <h3>Bachelor of Science - Informatik</h3>
-                            <h4>Leibniz Universität Hannover</h4>
-                            <ul>
-                                <li>Umfassende Ausbildung in verschiedenen Programmiersprachen</li>
-                                <li>Vertiefung in Algorithmen und Datenstrukturen</li>
-                                <li>Praktische Erfahrung in Softwareentwicklung und Systemadministration</li>
-                            </ul>
+                    <div class="timeline-category">
+                        <h3>Berufliche Laufbahn</h3>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-date">2018 - 2020</div>
+                            <div class="timeline-content">
+                                <h3>Verkaufshilfe</h3>
+                                <h4>Aral Hessisch Oldendorf</h4>
+                                <p>Erste Berufserfahrung im Kundenservice und Verkauf</p>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="timeline-category">
-                    <h3>Berufliche Laufbahn</h3>
-                    
-                    <div class="timeline-item">
-                        <div class="timeline-date">2018 - 2020</div>
-                        <div class="timeline-content">
-                            <h3>Verkaufshilfe</h3>
-                            <h4>Aral Hessisch Oldendorf</h4>
-                            <p>Erste Berufserfahrung im Kundenservice und Verkauf</p>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - 2022</div>
+                            <div class="timeline-content">
+                                <h3>Verkaufshilfe</h3>
+                                <h4>Lidl Seelze</h4>
+                                <p>Unterstützung im Verkauf und Kundenservice</p>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="timeline-item">
-                        <div class="timeline-date">2020 - 2022</div>
-                        <div class="timeline-content">
-                            <h3>Verkaufshilfe</h3>
-                            <h4>Lidl Seelze</h4>
-                            <p>Unterstützung im Verkauf und Kundenservice</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item">
-                        <div class="timeline-date">2022 - Heute</div>
-                        <div class="timeline-content">
-                            <h3>IT-Administrator & Prozessautomatisierer</h3>
-                            <h4>Goldener Elch GmbH</h4>
-                            <ul>
-                                <li>Unterstützung bei der ISO 9001 Zertifizierung</li>
-                                <li>Administrative Tätigkeiten in Windows Server Umgebung</li>
-                                <li>Entwicklung und Implementierung von Prozessautomatisierungen</li>
-                                <li>Microsoft 365 Administration und Verwaltung der M365-Umgebung</li>
-                                <li>Umfassende Kenntnisse in M365-Services und deren Integration</li>
-                            </ul>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2022 - Heute</div>
+                            <div class="timeline-content">
+                                <h3>IT-Administrator & Prozessautomatisierer</h3>
+                                <h4>Goldener Elch GmbH</h4>
+                                <ul>
+                                    <li>Unterstützung bei der ISO 9001 Zertifizierung</li>
+                                    <li>Administrative Tätigkeiten in Windows Server Umgebung</li>
+                                    <li>Entwicklung und Implementierung von Prozessautomatisierungen</li>
+                                    <li>Microsoft 365 Administration und Verwaltung der M365-Umgebung</li>
+                                    <li>Umfassende Kenntnisse in M365-Services und deren Integration</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -287,23 +429,16 @@
     </section>
 
     <section id="contact">
-        <div class="floating-images-container contact-background">
-            <img src="ai_picture.jpg" class="floating-image" alt="AI">
-            <img src="c_picture.jpeg" class="floating-image" alt="C">
-            <img src="data_picture.jpg" class="floating-image" alt="Data">
-            <img src="git_picture.png" class="floating-image" alt="Git">
-            <img src="html_picture.png" class="floating-image" alt="HTML">
-            <img src="java_picture.jpg" class="floating-image" alt="Java">
-            <img src="python_picture.png" class="floating-image" alt="Python">
-        </div>
-        <div class="container">
-            <h2>Kontakt</h2>
-            <form id="contact-form">
-                <input type="text" name="name" id="name" placeholder="Name" required>
-                <input type="email" name="email" id="email" placeholder="E-Mail" required>
-                <textarea name="message" id="message" placeholder="Nachricht" required></textarea>
-                <button type="submit">Senden</button>
-            </form>
+        <div class="section-container">
+            <div class="container">
+                <h2>Kontakt</h2>
+                <form id="contact-form">
+                    <input type="text" name="name" id="name" placeholder="Name" required>
+                    <input type="email" name="email" id="email" placeholder="E-Mail" required>
+                    <textarea name="message" id="message" placeholder="Nachricht / Einladung zum persönlichen Gespräch ;)" required></textarea>
+                    <button type="submit">Senden</button>
+                </form>
+            </div>
         </div>
     </section>
 
