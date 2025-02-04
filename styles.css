@@ -1469,3 +1469,45 @@ section {
         }
     }
 }
+
+.contact-info {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.phone-number {
+    margin: 1rem 0;
+}
+
+.phone-number a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.phone-number a:hover {
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.phone-number svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Safari Fix */
+@supports (-webkit-touch-callout: none) {
+    .phone-number a {
+        -webkit-transform: translateZ(0);
+    }
+    
+    .phone-number a:hover {
+        -webkit-transform: translateY(-2px);
+    }
+}
