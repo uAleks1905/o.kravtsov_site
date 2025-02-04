@@ -26,33 +26,82 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Burger Menu Funktionalität
+    // Typewriter Effekt
+    const profileName = document.querySelector('.profile-name');
+    const jobTitle = document.querySelector('.profile-section h2');
+    
+    function typeWriter(element, text, callback) {
+        let i = 0;
+        const cursor = document.createElement('span');
+        cursor.classList.add('cursor');
+        element.textContent = '';
+        element.appendChild(cursor);
+        element.style.opacity = '1';
+        
+        function type() {
+            if (i < text.length) {
+                cursor.insertAdjacentText('beforebegin', text[i]);
+                i++;
+                setTimeout(type, 100);
+            } else if (callback) {
+                setTimeout(() => {
+                    cursor.remove();
+                    callback();
+                }, 500);
+            } else {
+                cursor.remove();
+            }
+        }
+        
+        type();
+    }
+
+    if (profileName && jobTitle) {
+        const nameText = profileName.textContent;
+        const titleText = jobTitle.textContent;
+        
+        // Hide elements initially
+        profileName.style.opacity = '0';
+        jobTitle.style.opacity = '0';
+        
+        // Start typing name after a short delay
+        setTimeout(() => {
+            typeWriter(profileName, nameText, () => {
+                // Start typing job title after name is complete
+                typeWriter(jobTitle, titleText);
+            });
+        }, 500);
+    }
+
+    // Burger Menu
     const burgerMenu = document.querySelector('.burger-menu');
     const navLinks = document.querySelector('.nav-links');
-    
-    burgerMenu.addEventListener('click', function() {
-        burgerMenu.classList.toggle('active');
-        navLinks.classList.toggle('active');
-        document.body.classList.toggle('menu-open');
-    });
 
-    // Schließe Menü wenn ein Link geklickt wird
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            burgerMenu.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.classList.remove('menu-open');
+    if (burgerMenu && navLinks) {
+        burgerMenu.addEventListener('click', () => {
+            burgerMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
         });
-    });
 
-    // Schließe Menü wenn außerhalb geklickt wird
-    document.addEventListener('click', (e) => {
-        if (!burgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
-            burgerMenu.classList.remove('active');
-            navLinks.classList.remove('active');
-            document.body.classList.remove('menu-open');
-        }
-    });
+        // Schließe das Menü wenn ein Link geklickt wird
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+
+        // Schließe Menü wenn außerhalb geklickt wird
+        document.addEventListener('click', (e) => {
+            if (!burgerMenu.contains(e.target) && !navLinks.contains(e.target)) {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            }
+        });
+    }
 
     // Skills immer ausgeklappt auf Mobile
     if (isMobile) {
@@ -151,6 +200,50 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Scroll Spy für die Seitennavigation
+    const sections = document.querySelectorAll('section[id]');
+    const navDots = document.querySelectorAll('.nav-dot');
+
+    function updateActiveSection() {
+        const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            const sectionId = section.getAttribute('id');
+
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                navDots.forEach(dot => {
+                    dot.classList.remove('active');
+                    if (dot.getAttribute('data-section') === sectionId) {
+                        dot.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+
+    // Event Listener für Scroll
+    window.addEventListener('scroll', updateActiveSection);
+    
+    // Initial Update
+    updateActiveSection();
+
+    // Smooth Scroll für die Navigationspunkte
+    document.querySelectorAll('.nav-dot').forEach(dot => {
+        dot.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
     // Kontaktformular Handler
     const contactForm = document.getElementById('contact-form');
     if (contactForm) {
@@ -203,41 +296,4 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         scrollTimeout = window.requestAnimationFrame(checkScroll);
     });
-
-    // Typewriter Effekt
-    const nameElement = document.querySelector('.profile-name');
-    const titleElement = document.querySelector('.profile-section h2');
-    
-    function startTypewriter(element, delay = 0) {
-        const text = element.textContent;
-        const typewriterSpan = document.createElement('span');
-        typewriterSpan.classList.add('typewriter');
-        element.textContent = '';
-        element.appendChild(typewriterSpan);
-        element.style.opacity = '1';
-        
-        setTimeout(() => {
-            let i = 0;
-            const typing = setInterval(() => {
-                if (i < text.length) {
-                    typewriterSpan.textContent += text.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(typing);
-                    // Cursor am Ende entfernen
-                    setTimeout(() => {
-                        typewriterSpan.classList.remove('typewriter');
-                    }, 1000);
-                    if (element === nameElement && titleElement) {
-                        startTypewriter(titleElement);
-                    }
-                }
-            }, 100);
-        }, delay);
-    }
-
-    // Starte den Effekt mit dem Namen
-    if (nameElement) {
-        startTypewriter(nameElement, 500);
-    }
 });
