@@ -17,6 +17,87 @@
     }
 }
 
+/* Safari-spezifische Fixes */
+@supports (-webkit-hyphens:none) {
+    .nav-links {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+
+    .burger-menu {
+        -webkit-appearance: none;
+        appearance: none;
+    }
+
+    .profile-section {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+    }
+
+    .nav-dot {
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+
+    .cursor {
+        -webkit-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+    }
+
+    @-webkit-keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+    }
+}
+
+/* Verbesserte Flex-Layout Unterstützung für Safari */
+.nav-links {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}
+
+/* Verbesserte Animation-Performance */
+.nav-links a, .nav-dot, .cursor {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+/* Fix für Sticky-Position in Safari */
+.section-nav {
+    position: -webkit-sticky;
+    position: sticky;
+}
+
+/* Fix für Overflow-Scrolling in Safari */
+.nav-links.active {
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Fix für Flex-Grow in Safari */
+.profile-section {
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+/* Fix für SVG-Icons in Safari */
+.social-link svg {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
 :root {
     --primary-color: #4A4A4A;
     --secondary-color: #8B8178;
