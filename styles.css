@@ -1004,7 +1004,7 @@ footer {
 .project ul {
     list-style-type: disc;
     margin-left: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .project li {
@@ -1784,5 +1784,122 @@ footer {
     
     .back-button:hover {
         -webkit-transform: translateY(-2px);
+    }
+}
+
+/* Mobile & Safari Optimierungen */
+@supports (-webkit-touch-callout: none) {
+    /* Verhindere Overscroll-Bounce-Effekt */
+    html {
+        height: 100%;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    body {
+        height: 100%;
+        overflow: auto;
+        position: fixed;
+        width: 100%;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Fix für iOS Safe Areas */
+    .nav-container {
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+    
+    /* Fix für iOS Hover */
+    @media (hover: hover) {
+        .project-card:hover,
+        .skill-item:hover,
+        .social-link:hover {
+            transform: translateY(-5px);
+        }
+    }
+    
+    /* Verbesserte Touch-Targets */
+    .nav-links a,
+    .social-link,
+    .back-button {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 12px;
+    }
+    
+    /* Fix für iOS Momentum Scrolling */
+    .projects-container,
+    .skills-container,
+    .section-container {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Responsive Design Verbesserungen */
+@media (max-width: 768px) {
+    /* Bessere Touch-Targets für Mobile */
+    .nav-links a {
+        padding: 15px;
+        margin: 5px 0;
+    }
+    
+    /* Angepasste Schriftgrößen */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.5rem; }
+    p { font-size: 1rem; }
+    
+    /* Verbesserte Abstände */
+    .section-container {
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    /* Optimierte Bilder für Mobile */
+    .project-image {
+        height: 200px;
+    }
+    
+    /* Bessere Lesbarkeit */
+    .project-content,
+    .skill-details {
+        padding: 1.2rem;
+    }
+}
+
+/* Landscape Mode Optimierungen */
+@media (max-height: 500px) and (orientation: landscape) {
+    .project-image {
+        height: 150px;
+    }
+    
+    .section-container {
+        padding: 1rem;
+    }
+    
+    .nav-container {
+        padding: 0.5rem;
+    }
+}
+
+/* High-DPI Screens */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Reduzierte Bewegung */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
