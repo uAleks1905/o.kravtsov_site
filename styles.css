@@ -1165,21 +1165,46 @@ main {
 }
 
 .social-link {
-    color: var(--primary-color);
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    text-decoration: none;
+    color: var(--primary-color);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .social-link:hover {
     color: var(--accent-color);
-    transform: translateY(-2px);
+}
+
+/* Entferne alle Link-Stile für Safari */
+.social-link, 
+.social-link:link,
+.social-link:visited,
+.social-link:hover,
+.social-link:active {
+    text-decoration: none;
+    -webkit-text-decoration: none;
 }
 
 .social-link svg {
     width: 28px;
     height: 28px;
+    display: block;
+    pointer-events: none;
+}
+
+/* Safari Mobile Fix */
+@supports (-webkit-touch-callout: none) {
+    .social-link {
+        text-decoration: none !important;
+        -webkit-text-decoration: none !important;
+        color: var(--primary-color) !important;
+    }
+    
+    .social-link svg {
+        fill: currentColor;
+    }
 }
 
 .section-nav {
