@@ -296,4 +296,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         scrollTimeout = window.requestAnimationFrame(checkScroll);
     });
+
+    // Intersection Observer für Abschnittsüberschriften
+    const sectionHeaders = document.querySelectorAll('.section-header');
+    
+    const headerObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    sectionHeaders.forEach(header => {
+        headerObserver.observe(header);
+    });
 });
