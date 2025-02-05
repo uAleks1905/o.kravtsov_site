@@ -650,6 +650,27 @@ h4 {
     color: var(--primary-color);
     margin: 0;
     font-size: 1.2rem;
+    transition: text-decoration 0.3s ease;
+}
+
+.skill-item:hover h4 {
+    text-decoration: underline;
+}
+
+.skill-item::after {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover::after {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .skill-details {
@@ -992,8 +1013,30 @@ footer {
 
 .project h4 {
     color: var(--primary-color);
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+    margin: 0;
+    font-size: 1.2rem;
+    transition: text-decoration 0.3s ease;
+}
+
+.project:hover h4 {
+    text-decoration: underline;
+}
+
+.project::after {
+    content: "→";
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 3rem;
+    color: var(--accent-color);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.project:hover::after {
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .project p {
@@ -1108,7 +1151,7 @@ footer {
     }
     
     .skill-details {
-        padding: 0.8rem 0 0 0;
+        padding: 0.6rem 0 0 0;
     }
     
     input, textarea, button {
