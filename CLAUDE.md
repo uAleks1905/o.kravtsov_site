@@ -21,7 +21,6 @@ Personal portfolio website for Oleksiy Kravtsov. All content is in **German**. B
 ### Setup
 
 ```bash
-cd portfolio-nextjs
 npm install
 ```
 
@@ -45,7 +44,6 @@ npm run start    # Serve production build locally
 ### Directory Structure
 
 ```
-portfolio-nextjs/
 ├── app/
 │   ├── layout.tsx           # Root layout with Navigation & Footer
 │   ├── page.tsx             # Home page (Hero, About, Skills, Resume, Contact)
@@ -77,7 +75,9 @@ portfolio-nextjs/
 │       ├── experience.ts    # Education & Work history
 │       ├── projects.ts      # Project showcase data
 │       └── about.ts         # Bio text
-└── public/images/           # Static assets
+├── public/images/           # Static assets
+├── .old_html_version/       # Archived vanilla HTML version
+└── [Next.js config files]   # package.json, next.config.ts, etc.
 ```
 
 ### Page Structure
