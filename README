@@ -1,3 +1,51 @@
-Hi :)
+# Portfolio Website - Oleksiy Kravtsov
 
-Das ist meine eigene bewerbungs Website
+Persönliche Portfolio-Website gebaut mit Next.js 15.
+
+🌐 **Live Demo:** [Wird nach Deployment hinzugefügt]
+
+## 📁 Projektstruktur
+
+```
+.
+├── portfolio-nextjs/     # Next.js 15 Hauptprojekt (AKTUELL)
+│   ├── app/             # Next.js App Router
+│   ├── components/      # React-Komponenten
+│   ├── lib/             # Utilities und Content-Daten
+│   └── public/          # Statische Assets
+├── .old_html_version/   # Archivierte vanilla HTML/CSS/JS Version
+└── docs/                # Projektdokumentation
+```
+
+## 🚀 Schnellstart
+
+```bash
+cd portfolio-nextjs
+npm install
+npm run dev
+```
+
+Öffne [http://localhost:3000](http://localhost:3000) im Browser.
+
+## 📚 Dokumentation
+
+- **[portfolio-nextjs/README.md](./portfolio-nextjs/README.md)** - Detaillierte Projektdokumentation
+- **[CLAUDE.md](./CLAUDE.md)** - Technische Architektur und Entwicklungsrichtlinien
+- **[docs/plans/](./docs/plans/)** - Design-Dokumente und Migrationspläne
+
+## 💡 Tech Stack
+
+- Next.js 15 + TypeScript
+- Tailwind CSS + Framer Motion
+- Resend API für Kontaktformular
+- Vercel Deployment
+
+## 📄 Lizenz
+
+Persönliches Portfolio-Projekt von Oleksiy Kravtsov.
+
+## 👤 Kontakt
+
+- GitHub: [@uAleks1905](https://github.com/uAleks1905)
+- LinkedIn: [Oleksiy Kravtsov](https://de.linkedin.com/in/oleksiy-kravtsov-a6aa4a31b)
+- E-Mail: kravtsov.o@icloud.com
