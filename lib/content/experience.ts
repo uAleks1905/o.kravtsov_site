@@ -33,19 +33,13 @@ export const experience: ExperienceItem[] = [
   },
   // Work Experience
   {
-    year: '2018 - 2022',
-    title: 'Verkaufshilfe Einzelhandel',
-    organization: 'Aral Hessisch Oldendorf & Lidl Seelze',
-    details: [
-      'Erste Berufserfahrung im Kundenservice und Verkauf',
-    ],
-    type: 'work',
-  },
-  {
     year: '2022 - Heute',
-    title: 'IT-Administrator & Prozessautomatisierer',
+    title: 'IT-Administrator & Webentwickler',
     organization: 'Goldener Elch GmbH',
     details: [
+      'Moderne Webentwicklung mit Next.js 15, React, TypeScript und Tailwind CSS',
+      'Entwicklung responsiver und performanter Web-Anwendungen',
+      'Integration von AI-Features und LLM-APIs in Web-Projekte',
       'Unterstützung bei der ISO 9001 Zertifizierung',
       'Administrative Tätigkeiten in Windows Server Umgebung',
       'Entwicklung und Implementierung von Prozessautomatisierungen',
